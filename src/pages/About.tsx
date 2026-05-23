@@ -1,22 +1,54 @@
-import { useEffect } from 'react';
+import { motion } from 'motion/react';
 
 export default function About() {
-  useEffect(() => {
-    document.title = "About | Kaito Studio";
-    document.querySelector('meta[name="description"]')?.setAttribute("content", "The story of Kaito Studio, run by Abhay, focused on high-quality web design.");
-  }, []);
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 15 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
+    }
+  };
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-6 py-20 md:px-12">
+    <motion.div 
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="w-full max-w-7xl mx-auto px-6 py-20 md:px-12"
+    >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         
         <div className="order-2 lg:order-1 flex flex-col items-start gap-6">
-          <h2 className="inline-block px-4 py-1 border border-accent rounded-full text-[10px] uppercase tracking-widest text-accent mb-2">Who We Are</h2>
-          <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl mb-4 leading-tight text-cream">
-            The Story of <span className="font-serif italic block pt-2">Kaito Studio.</span>
-          </h1>
+          <motion.h2 
+            variants={itemVariants}
+            className="inline-block px-4 py-1 border border-accent rounded-full text-[10px] uppercase tracking-widest text-accent mb-2"
+          >
+            Who We Are
+          </motion.h2>
           
-          <div className="space-y-6 text-secondary text-base leading-relaxed max-w-lg mt-4 font-light">
+          <motion.h1 
+            variants={itemVariants}
+            className="font-heading text-5xl md:text-6xl lg:text-7xl mb-4 leading-tight text-cream"
+          >
+            The Story of <span className="font-serif italic block pt-2">Kaito Studio.</span>
+          </motion.h1>
+          
+          <motion.div 
+            variants={itemVariants}
+            className="space-y-6 text-secondary text-base leading-relaxed max-w-lg mt-4 font-light"
+          >
             <p>
               "Kaito" translates to "Ocean and Soar." It represents depth, clarity, and the boundless trajectory of digital ambition. Kaito Studio is a highly specialized design practice servicing the US, UK, EU, and Japan.
             </p>
@@ -26,9 +58,12 @@ export default function About() {
             <p>
               We believe great design shouldn't require endless Zoom calls. You provide the vision. We execute with precision. 
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-2 gap-x-12 gap-y-6 mt-8 p-6 border border-card bg-card/10">
+          <motion.div 
+            variants={itemVariants}
+            className="grid grid-cols-2 gap-x-12 gap-y-6 mt-8 p-6 border border-card bg-card/10 w-full md:w-auto"
+          >
             <div>
               <p className="text-accent text-xs uppercase tracking-widest mb-1">Focus</p>
               <p className="font-serif text-cream">SaaS & Services</p>
@@ -45,21 +80,28 @@ export default function About() {
               <p className="text-accent text-xs uppercase tracking-widest mb-1">Locations</p>
               <p className="font-serif text-cream">Global Reach</p>
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        <div className="order-1 lg:order-2 w-full flex justify-center">
-          <div className="relative w-full max-w-md aspect-[3/4] rounded-2xl overflow-hidden border border-accent">
+        <motion.div 
+          variants={itemVariants}
+          className="order-1 lg:order-2 w-full flex justify-center"
+        >
+          <motion.div 
+            whileHover={{ scale: 1.01 }}
+            transition={{ duration: 0.4 }}
+            className="relative w-full max-w-md aspect-[3/4] rounded-2xl overflow-hidden border border-accent cursor-pointer group"
+          >
             <img 
               id="founder-photo-about"
-              src="https://images.unsplash.com/photo-1542157585-ef20bbcce178?q=80&w=2400&auto=format&fit=crop" 
+              src="/src/assets/images/regenerated_image_1779539837094.jpg" 
               alt="Abhay" 
-              className="w-full h-full object-cover z-10 relative grayscale hover:grayscale-0 transition-all duration-700"
+              className="w-full h-full object-cover z-10 relative grayscale group-hover:grayscale-0 transition-all duration-700"
             />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
       </div>
-    </div>
+    </motion.div>
   );
 }

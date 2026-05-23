@@ -1,8 +1,10 @@
 import { Link, Outlet } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import { useSEO } from '../hooks/useSEO';
 
 export default function Layout() {
+  useSEO();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
@@ -74,6 +76,11 @@ export default function Layout() {
         
         <div className="text-center md:text-right text-secondary space-y-1">
           <p className="text-xs tracking-wider uppercase">— © {new Date().getFullYear()}</p>
+          <div className="flex gap-4 justify-center md:justify-end text-[10px] uppercase tracking-widest text-accent my-1">
+            <a href="https://instagram.com/kaitomadeyou" target="_blank" rel="noopener noreferrer" className="hover:text-cream transition-colors">@kaitomadeyou</a>
+            <span className="opacity-40">•</span>
+            <a href="mailto:kaito.webdev@gmail.com" className="hover:text-cream transition-colors">kaito.webdev@gmail.com</a>
+          </div>
           <p className="text-[10px] uppercase tracking-widest text-secondary opacity-60">Fully async. No meetings. Privacy first.</p>
         </div>
       </footer>
