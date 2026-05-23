@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-midnight: #202937;
+  --color-cream: #E6D7CD;
+  --color-secondary: #D4C1B9;
+  --color-card: #423D42;
+  --color-accent: #A99898;
+
+  --font-heading: 'Cinzel Decorative', serif;
+  --font-script: 'Playfair Display', serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-midnight text-cream font-body antialiased selection:bg-accent selection:text-midnight;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
