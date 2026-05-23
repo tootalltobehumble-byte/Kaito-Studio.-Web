@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import founderImage from '../assets/images/regenerated_image_1779539837094.jpg';
 
 export default function About() {
   const containerVariants = {
@@ -94,7 +95,7 @@ export default function About() {
           >
             <img 
               id="founder-photo-about"
-              src="/src/assets/images/regenerated_image_1779539837094.jpg" 
+              src={founderImage} 
               alt="Abhay" 
               className="w-full h-full object-cover z-10 relative grayscale group-hover:grayscale-0 transition-all duration-700"
             />

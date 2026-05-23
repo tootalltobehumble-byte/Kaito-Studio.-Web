@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 import { motion } from 'motion/react';
+import founderImage from '../assets/images/regenerated_image_1779539837094.jpg';
 
 export default function Home() {
   const scrollToValueProp = () => {
@@ -120,7 +121,7 @@ export default function Home() {
             >
               <img 
                 id="founder-photo" 
-                src="/src/assets/images/regenerated_image_1779539837094.jpg" 
+                src={founderImage} 
                 alt="Abhay" 
                 className="absolute inset-0 w-full h-full object-cover z-0 grayscale group-hover:grayscale-0 transition-all duration-700"
                 loading="eager"
